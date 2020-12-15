@@ -20,7 +20,7 @@ namespace ConsoleDI
             Configuration = builder.Build();
 
             var serviceCollection = new ServiceCollection();
-            ConfigureService(serviceCollection);
+            ConfigureServices(serviceCollection);
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
             var scope = ServiceProvider.CreateScope();
@@ -29,7 +29,7 @@ namespace ConsoleDI
             scope.Dispose();
         }
 
-        private static void ConfigureService(IServiceCollection services)
+        private static void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddScoped<Application>();
